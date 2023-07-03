@@ -10,6 +10,7 @@ const routes = [
   {
     path: "/",
     component: Layout,
+    name:'首页',
     meta:{
       title:'首页'
     },

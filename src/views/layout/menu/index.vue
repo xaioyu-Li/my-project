@@ -1,40 +1,42 @@
 <template>
-    <div class="">
-        <el-menu :default-active="$route.path" class="el-menu-vertical-demo" background-color="#304156" text-color="#fff"
-            active-text-color="rgb(64, 158, 255)" router :collapse="isCollapse">
-            <el-menu-item>
-                <img src="../menu/logo.gif" alt="" style="width: 32px;height: 32px;">
-                <span slot="title" style="font-size: 20px;">FastBee</span>
-            </el-menu-item>
-            <el-menu-item v-for="item in noChildren" :key="item.name" :index="item.path">
-                <i :class="`iconfont icon-${item.icon}`"></i>
-                <span slot="title">{{ item.lable }}</span>
-            </el-menu-item>
-            <el-submenu :index="item.path" v-for="item in  hasChildren " :key="item.name">
-                <template slot="title">
+    <div class="menu">
+        <el-scrollbar>
+            <el-menu :default-active="$route.path" class="el-menu-vertical-demo" background-color="#304156"
+                text-color="#fff" active-text-color="rgb(64, 158, 255)" router :collapse="isCollapse">
+                <el-menu-item>
+                    <img src="../menu/logo.gif" alt="" style="width: 32px;height: 32px;">
+                    <span slot="title" style="font-size: 20px;">FastBee</span>
+                </el-menu-item>
+                <el-menu-item v-for="item in noChildren" :key="item.name" :index="item.path">
                     <i :class="`iconfont icon-${item.icon}`"></i>
-                    <span>{{ item.lable }}</span>
-                </template>
-                <el-menu-item-group v-for=" subItem  in  item.children " :key="subItem.name">
-                    <el-menu-item :index="subItem.path">
-                        <i :class="`iconfont icon-${subItem.icon}`"></i>
-                        <span>{{ subItem.lable }}</span>
-                    </el-menu-item>
-                </el-menu-item-group>
-            </el-submenu>
-            <el-submenu :index="item.path" v-for="item in  hasChildren1 " :key="item.name">
-                <template slot="title">
-                    <i :class="`iconfont icon-${item.icon}`"></i>
-                    <span>{{ item.lable }}</span>
-                </template>
-                <el-menu-item-group v-for=" subItem  in  item.children " :key="subItem.name">
-                    <el-menu-item :index="subItem.path">
-                        <i :class="`iconfont icon-${subItem.icon}`"></i>
-                        <span>{{ subItem.lable }}</span>
-                    </el-menu-item>
-                </el-menu-item-group>
-            </el-submenu>
-        </el-menu>
+                    <span slot="title">{{ item.lable }}</span>
+                </el-menu-item>
+                <el-submenu :index="item.path" v-for="item in  hasChildren " :key="item.name">
+                    <template slot="title">
+                        <i :class="`iconfont icon-${item.icon}`"></i>
+                        <span>{{ item.lable }}</span>
+                    </template>
+                    <el-menu-item-group v-for=" subItem  in  item.children " :key="subItem.name">
+                        <el-menu-item :index="subItem.path">
+                            <i :class="`iconfont icon-${subItem.icon}`"></i>
+                            <span>{{ subItem.lable }}</span>
+                        </el-menu-item>
+                    </el-menu-item-group>
+                </el-submenu>
+                <el-submenu :index="item.path" v-for="item in  hasChildren1 " :key="item.name">
+                    <template slot="title">
+                        <i :class="`iconfont icon-${item.icon}`"></i>
+                        <span>{{ item.lable }}</span>
+                    </template>
+                    <el-menu-item-group v-for=" subItem  in  item.children " :key="subItem.name">
+                        <el-menu-item :index="subItem.path">
+                            <i :class="`iconfont icon-${subItem.icon}`"></i>
+                            <span>{{ subItem.lable }}</span>
+                        </el-menu-item>
+                    </el-menu-item-group>
+                </el-submenu>
+            </el-menu>
+        </el-scrollbar>
     </div>
 </template>
 
@@ -187,8 +189,11 @@ i {
     margin-right: 16px;
 }
 
+.menu {}
+
 .el-menu {
     border-right: 0;
+
 
     .el-menu-item-group {
         background-color: #1f2d3d !important;
